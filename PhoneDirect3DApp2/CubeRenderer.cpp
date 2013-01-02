@@ -93,47 +93,13 @@ void CubeRenderer::CreateDeviceResources()
 
 
 	auto loadTextureTask = (createPSTask && createVSTask).then([this] () {
-		D3DTexture *pD3DTexture = new D3DTexture( );
-		pD3DTexture->initialize( 128, 128 );
+		m_pTexture = new D3DTexture( );
+		m_pTexture->initialize( 128, 128 );
+		m_pTexture->noise( 64, 64 );
 
-		D3D11_TEXTURE2D_DESC depthBufferDesc;
-			ZeroMemory(&depthBufferDesc, sizeof(depthBufferDesc));
+//		m_pTexture->load( "AlignmentGrid.png" );
 
-	// Set up the description of the depth buffer.
-	depthBufferDesc.Width = pD3DTexture->getWidth();
-	depthBufferDesc.Height = pD3DTexture->getHeight();
-	depthBufferDesc.MipLevels = 1;
-	depthBufferDesc.ArraySize = 1;
-	depthBufferDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-//	depthBufferDesc.Format = DXGI_FORMAT_R8G8B8A8_TYPELESS;
-	depthBufferDesc.SampleDesc.Count = 1;
-	depthBufferDesc.SampleDesc.Quality = 0;
-	depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	depthBufferDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
-	depthBufferDesc.CPUAccessFlags = 0;
-	depthBufferDesc.MiscFlags = 0;
-	D3D11_SUBRESOURCE_DATA data;
-	data.pSysMem = pD3DTexture->getData();
-	data.SysMemPitch = pD3DTexture->getWidth()*4*4;
-	data.SysMemSlicePitch = 0;
-
-	ID3D11Texture2D* tex = 0;
-	// Create the texture for the depth buffer using the filled out description.
-			DX::ThrowIfFailed(
-				m_d3dDevice->CreateTexture2D(&depthBufferDesc, &data, &tex)
-			);
-
-	D3D11_SHADER_RESOURCE_VIEW_DESC SRVDesc;
-memset(&SRVDesc, 0, sizeof(SRVDesc));
-SRVDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-SRVDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-SRVDesc.Texture2D.MipLevels = 1;
-
-	DX::ThrowIfFailed(
-		m_d3dDevice->CreateShaderResourceView( tex, &SRVDesc, &m_pTextures[0])
-	);
-//		m_d3dDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-//		m_d3dDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+		m_pTexture->storeToHardware( m_d3dDevice );
 	});
 
 
@@ -272,9 +238,7 @@ void CubeRenderer::Render()
 		0
 		);
 
-	m_d3dContext->PSSetShaderResources( 0, 1, m_pTextures );
-	//deviceContext->PSSetSamplers(0, 1, &m_sampleState);
-
+	m_pTexture->activate( m_d3dContext, 0 );
 
 	m_pMesh->render( m_d3dContext );
 

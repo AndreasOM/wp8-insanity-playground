@@ -2,6 +2,7 @@
 
 #include "Direct3DBase.h"
 
+#include "D3DTexture.h"
 #include "Mesh.h"
 
 struct ModelViewProjectionConstantBuffer
@@ -36,8 +37,7 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11PixelShader> m_pixelShader;
 	Microsoft::WRL::ComPtr<ID3D11Buffer> m_constantBuffer;
 
-	ID3D11ShaderResourceView*				m_pTextures[ 2 ];
-	//Microsoft::WRL::ComPtr<ID3D11Texture2D>	m_texture;
+	D3DTexture*								m_pTexture;
 
 	uint32 m_indexCount;
 	ModelViewProjectionConstantBuffer m_constantBufferData;

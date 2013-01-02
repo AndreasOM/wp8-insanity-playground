@@ -28,6 +28,12 @@
     <Image Include="Assets\Tiles\IconicTileSmall.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="Assets\noise.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\test.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="SimplePixelShader.hlsl" />
@@ -42,6 +48,7 @@
     <ClCompile Include="CheckerMesh.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="D3DTexture.cpp" />
+    <ClCompile Include="stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -54,6 +61,7 @@
     <ClInclude Include="CheckerMesh.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="D3DTexture.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="WMAppManifest.xml" />

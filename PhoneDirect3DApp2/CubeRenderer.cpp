@@ -97,7 +97,8 @@ void CubeRenderer::CreateDeviceResources()
 		m_pTexture->initialize( 128, 128 );
 		m_pTexture->noise( 64, 64 );
 
-//		m_pTexture->load( "AlignmentGrid.png" );
+		m_pTexture->load( "Assets\\noise.png" );
+//		m_pTexture->load( "Assets\\test.png" );
 
 		m_pTexture->storeToHardware( m_d3dDevice );
 	});

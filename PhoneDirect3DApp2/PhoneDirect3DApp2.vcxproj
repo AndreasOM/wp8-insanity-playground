@@ -134,22 +134,26 @@
   <ItemGroup>
     <ClInclude Include="CheckerMesh.h" />
     <ClInclude Include="CubeMesh.h" />
+    <ClInclude Include="D3DTexture.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="PhoneDirect3DApp2.h" />
     <ClInclude Include="CubeRenderer.h" />
     <ClInclude Include="DirectXHelper.h" />
     <ClInclude Include="Direct3DBase.h" />
     <ClInclude Include="BasicTimer.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CheckerMesh.cpp" />
     <ClCompile Include="CubeMesh.cpp" />
+    <ClCompile Include="D3DTexture.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="PhoneDirect3DApp2.cpp" />
     <ClCompile Include="CubeRenderer.cpp" />
     <ClCompile Include="Direct3DBase.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="SimplePixelShader.hlsl">

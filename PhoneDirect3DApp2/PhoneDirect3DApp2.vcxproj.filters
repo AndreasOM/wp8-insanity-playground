@@ -40,6 +40,8 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="CubeMesh.cpp" />
     <ClCompile Include="CheckerMesh.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="D3DTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -50,6 +52,8 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="CubeMesh.h" />
     <ClInclude Include="CheckerMesh.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="D3DTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="WMAppManifest.xml" />

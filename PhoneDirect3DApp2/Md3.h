@@ -34,6 +34,11 @@ class Md3
 			float			coord[ 3 ];
 			float			normal[ 3 ];
 		};
+		struct TexCoord
+		{
+			float			s;
+			float			t;
+		};
 
 		struct Surface
 		{
@@ -44,6 +49,7 @@ class Md3
 			Shader*			pShaders;
 			Triangle*		pTriangles;
 			Vertex*			pVertices;
+			TexCoord*		pTexCoords;
 		};
 
 		Md3(void);

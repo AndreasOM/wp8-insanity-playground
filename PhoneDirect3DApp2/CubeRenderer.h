@@ -41,6 +41,7 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11Buffer> m_constantBuffer;
 
 	D3DTexture*								m_pTexture;
+	D3DTexture*								m_pLaraTexture;
 
 	uint32 m_indexCount;
 	ModelViewProjectionConstantBuffer m_constantBufferData;

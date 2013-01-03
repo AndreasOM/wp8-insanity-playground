@@ -81,5 +81,8 @@
     <None Include="Assets\Lara\upper.md3">
       <Filter>Assets</Filter>
     </None>
+    <None Include="Assets\Lara\default.tga">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -150,7 +150,14 @@ bool Md3::load( const char* pBasepath, const char* pFilename )
 //			file.readSint32( &surface.pTriangles[ t ].vertexIndices[ 1 ] );
 		}
 
-		// :TODO: load ST
+		surface.pTexCoords = new TexCoord[ surface.numberOfVertices ];
+		file.setPosition( currentSurfaceOffset+stOffset );
+		
+		for( int t=0; t<surface.numberOfVertices; ++t )
+		{
+			file.readFloat32( &surface.pTexCoords[ t ].s );
+			file.readFloat32( &surface.pTexCoords[ t ].t );
+		}
 
 		surface.pVertices = new Vertex[ surface.numberOfVertices * numberOfFrames ];
 		file.setPosition( currentSurfaceOffset+xyznormalOffset );

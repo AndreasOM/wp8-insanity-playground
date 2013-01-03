@@ -84,6 +84,13 @@ void D3DTexture::load( const char* pFilename )
 
 	void *pImageData = stbi_load_from_memory( ( const stbi_uc* )pFileData, size, &w, &h, &comp, 4 );
 
+	if( m_pData != nullptr )
+	{
+		delete[] m_pData;
+	}
+	m_width = w;
+	m_height = h;
+	m_pData = ( void* )new unsigned char[ m_width*m_height*4*4 ];
 	float *pData = ( float* )m_pData;
 	unsigned char* pSrc = ( unsigned char* )pImageData;
 	for( int i=0; i<w*h*4; ++i )

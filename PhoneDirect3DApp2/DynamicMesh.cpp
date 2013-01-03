@@ -38,8 +38,8 @@ void DynamicMesh::initialize(  Microsoft::WRL::ComPtr<ID3D11Device1> d3dDevice, 
 		vert.color.x = 1.0f;
 		vert.color.y = 1.0f;
 		vert.color.z = 1.0f;
-		vert.texCoord.x = 0.5f;
-		vert.texCoord.y = 0.5f;
+		vert.texCoord.x = pSurface->pTexCoords[ v ].s;
+		vert.texCoord.y = pSurface->pTexCoords[ v ].t;
 	}
 
 	D3D11_SUBRESOURCE_DATA vertexBufferData = {0};

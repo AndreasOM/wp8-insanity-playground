@@ -112,6 +112,14 @@ void CubeRenderer::CreateDeviceResources()
 
 		m_pLaraMesh = new DynamicMesh();
 		m_pLaraMesh->initialize( m_d3dDevice, m_pMd3Lara );
+
+		m_pLaraTexture = new D3DTexture( );
+		m_pLaraTexture->initialize( 128, 128 );
+
+		m_pLaraTexture->load( "Assets\\Lara\\default.tga" );
+
+		m_pLaraTexture->storeToHardware( m_d3dDevice );
+
 	});
 
 
@@ -303,5 +311,6 @@ void CubeRenderer::Render()
 		0
 		);
 
+	m_pLaraTexture->activate( m_d3dContext, 0 );
 	m_pLaraMesh->render( m_d3dContext );
 }

@@ -2,6 +2,8 @@
 #include "D3DTexture.h"
 #include "stb_image.h"
 
+#include "File.h"
+
 D3DTexture::D3DTexture(void)
 {
 }
@@ -66,44 +68,28 @@ void D3DTexture::load( const char* pFilename )
 {
 	// assume we already are async and just load sync'd
 
-	FILE *pf = nullptr;
-	errno_t err = fopen_s( &pf, pFilename, "rb" );
-	// pf = fopen( pFilename, "rb" );
-
-	if( pf != nullptr )
+	File file( pFilename );
+	if( !file.isOpen() )
 	{
-		fseek( pf, 0, SEEK_END );
-		int size = ftell( pf );
-		fseek( pf, 0, SEEK_SET );
+		return;
+	}
+	int size = file.getSize();
 
-		void* pFileData = new unsigned char[ size ];
-		fread( pFileData, 1, size, pf );
+	void* pFileData = new unsigned char[ size ];
+	file.readBytes( pFileData, size );
 
-		int w = 0;
-		int h = 0;
-		int comp = 0;
+	int w = 0;
+	int h = 0;
+	int comp = 0;
 
-		void *pImageData = stbi_load_from_memory( ( const stbi_uc* )pFileData, size, &w, &h, &comp, 4 );
+	void *pImageData = stbi_load_from_memory( ( const stbi_uc* )pFileData, size, &w, &h, &comp, 4 );
 
-		float *pData = ( float* )m_pData;
-		unsigned char* pSrc = ( unsigned char* )pImageData;
-		for( int i=0; i<w*h*4; ++i )
-		{
-			pData[ i ] = pSrc[ i ]/255.0f;
-		}
-
-		delete[] pFileData;
-		fclose( pf );
+	float *pData = ( float* )m_pData;
+	unsigned char* pSrc = ( unsigned char* )pImageData;
+	for( int i=0; i<w*h*4; ++i )
+	{
+		pData[ i ] = pSrc[ i ]/255.0f;
 	}
 
-//	auto loadTask = DX::ReadDataAsync("SimplePixelShader.cso");
-/*
-	m_isLoading = true;
-	bool done = false;
-	auto createTask = loadTask.then([this](Platform::Array<byte>^ fileData) {
-		this->m_isLoading = false;
-
-		return true;
-	});
-	*/
+	delete[] pFileData;
 }

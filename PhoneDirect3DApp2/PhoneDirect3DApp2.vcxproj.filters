@@ -3,7 +3,7 @@
   <ItemGroup>
     <Filter Include="Assets">
       <UniqueIdentifier>17b52f90-9b33-4188-8a0e-808582bbabbc</UniqueIdentifier>
-      <Extensions>ico;bmp;dlg;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;resw;resjson</Extensions>
+      <Extensions>ico;bmp;dlg;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;resw;resjson;md3</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +49,10 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="D3DTexture.cpp" />
     <ClCompile Include="stb_image.c" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Md3.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="DynamicMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -62,8 +66,20 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="D3DTexture.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="Md3.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="DynamicMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Lara\lower.md3">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Lara\upper.md3">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,5 +1,9 @@
 #pragma once
 
+#include <d3d11_1.h>
+#include <DirectXMath.h>
+#include <wrl/client.h>
+
 struct VertexPositionColor
 {
 	DirectX::XMFLOAT3 pos;

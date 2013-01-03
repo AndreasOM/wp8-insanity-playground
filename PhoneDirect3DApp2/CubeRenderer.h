@@ -5,6 +5,9 @@
 #include "D3DTexture.h"
 #include "Mesh.h"
 
+class DynamicMesh;
+class Md3;
+
 struct ModelViewProjectionConstantBuffer
 {
 	DirectX::XMFLOAT4X4 model;
@@ -49,4 +52,7 @@ private:
 
 	Mesh*			m_pMesh;
 	Mesh*			m_pCheckerMesh;
+
+	Md3*			m_pMd3Lara;
+	DynamicMesh*	m_pLaraMesh;
 };

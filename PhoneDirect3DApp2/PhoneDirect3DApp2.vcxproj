@@ -137,7 +137,11 @@
     <ClInclude Include="CheckerMesh.h" />
     <ClInclude Include="CubeMesh.h" />
     <ClInclude Include="D3DTexture.h" />
+    <ClInclude Include="DynamicMesh.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="Md3.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="PhoneDirect3DApp2.h" />
     <ClInclude Include="CubeRenderer.h" />
     <ClInclude Include="DirectXHelper.h" />
@@ -150,7 +154,11 @@
     <ClCompile Include="CheckerMesh.cpp" />
     <ClCompile Include="CubeMesh.cpp" />
     <ClCompile Include="D3DTexture.cpp" />
+    <ClCompile Include="DynamicMesh.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="Md3.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="PhoneDirect3DApp2.cpp" />
     <ClCompile Include="CubeRenderer.cpp" />
     <ClCompile Include="Direct3DBase.cpp">
@@ -168,6 +176,14 @@
     <FxCompile Include="SimpleVertexShader.hlsl">
       <ShaderType>Vertex</ShaderType>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Lara\lower.md3">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Assets\Lara\upper.md3">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />

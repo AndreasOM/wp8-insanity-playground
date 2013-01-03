@@ -10,6 +10,8 @@
 #include "CubeMesh.h"
 #include "CheckerMesh.h"
 #include "D3DTexture.h"
+#include "DynamicMesh.h"
+#include "Md3.h"
 
 using namespace DirectX;
 using namespace Microsoft::WRL;
@@ -103,8 +105,17 @@ void CubeRenderer::CreateDeviceResources()
 		m_pTexture->storeToHardware( m_d3dDevice );
 	});
 
+	auto loadLaraTask = loadTextureTask.then([this]() {
+		m_pMd3Lara = new Md3();
 
-	( createCubeTask && createCheckerTask && loadTextureTask ).then([this] () {
+		m_pMd3Lara->load( "Assets\\Lara", "upper.md3" );
+
+		m_pLaraMesh = new DynamicMesh();
+		m_pLaraMesh->initialize( m_d3dDevice, m_pMd3Lara );
+	});
+
+
+	( createCubeTask && createCheckerTask && loadLaraTask ).then([this] () {
 		m_loadingComplete = true;
 	});
 
@@ -173,9 +184,10 @@ void CubeRenderer::Update(float timeTotal, float timeDelta)
 void CubeRenderer::Render()
 {
 	const float midnightBlue[] = { 0.098f, 0.098f, 0.439f, 1.000f };
+	const float black[] = { 0.0f, 0.0f, 0.0f, 1.000f };
 	m_d3dContext->ClearRenderTargetView(
 		m_renderTargetView.Get(),
-		midnightBlue
+		black
 		);
 
 	m_d3dContext->ClearDepthStencilView(
@@ -241,7 +253,7 @@ void CubeRenderer::Render()
 
 	m_pTexture->activate( m_d3dContext, 0 );
 
-	m_pMesh->render( m_d3dContext );
+//	m_pMesh->render( m_d3dContext );
 
 
 	float x = sinf( m_rotX )*3.0f;
@@ -263,4 +275,33 @@ void CubeRenderer::Render()
 		0
 		);
 	m_pCheckerMesh->render( m_d3dContext );
+
+	static float dummy = 1.5f*3.14f;
+//	dummy += 0.001f;
+	XMStoreFloat4x4(
+		&m_constantBufferData.model,
+		XMMatrixTranspose(
+			XMMatrixMultiply(
+				XMMatrixRotationX( dummy ),
+				XMMatrixTranslation( x, y+0.5f, 0.0f )
+			)
+		)
+	);
+	m_d3dContext->VSSetConstantBuffers(
+		0,
+		1,
+		m_constantBuffer.GetAddressOf()
+		);
+
+
+	m_d3dContext->UpdateSubresource(
+		m_constantBuffer.Get(),
+		0,
+		NULL,
+		&m_constantBufferData,
+		0,
+		0
+		);
+
+	m_pLaraMesh->render( m_d3dContext );
 }

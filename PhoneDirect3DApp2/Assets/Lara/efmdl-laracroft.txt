@@ -1,0 +1,61 @@
+March 12, 2002
+Lara Croft from Tomb Raider for Star Trek Voyager: Elite Force Converted by Richard Owen
+=================================================================================================
+
+Model Name              : Lara Croft
+
+Installation Directory  : BaseEF/efmdl-laracroft.pk3
+
+Elite Force Version     : Richard Owen
+
+Email Address		: rgowen2000@yahoo.com 
+
+URL                     : http://www.3dap.com/eliteforce/owen/
+
+Author			: PornStar
+
+Email Address           : nickelbag@Nyc.com
+
+Additional Misc. Help	: James "_Goatman_" Gatzmer
+
+Animations, Sounds	: James "_Goatman_" Gatzmer
+
+Email			: goatman@ironsnackcracker.com
+
+URL			: http://www.ironsnackcracker.com/
+                        
+Model description       : Yep... I based this model off Angelina Jolie from that Tomb Raider 			 		  movie.. ehh movie was okay... anyway I really tried to make the model 				  as realistic as possible.. I'm pretty proud of the skin which is where				  most the realism is.. The skins are all basically variations of each 			  		  other in some way... I kinda have a block on my imagination so... oh 			 		  well... comments what not, mail to nickelbag@nyc.com...
+	
+Big Ups			: Big ups to ocelot, the mighty pea... huge up to goatman... ahh feck, if 			  it's mad late and I wanna finish this thing up before I go to sleep so 			 	  if I missed anybody my fault..
+
+Goatman wishes to thank	: Pop n Fresh for his exporter, Npherno for his compiler, the folks in 			 		  #model_design and the folks at www.polycount.com, especially rogue13, 	 			  for all his great work efforts in the community.  Groove is in the 			 		  heart.
+
+=================================================================================================
+
+* Play Information *
+
+Skins			: 6
+New Sounds              : Yes
+CTF Skins               : Yes
+Bot Support 		: Yes
+
+* Construction * 
+Poly Count              : 1571 for high
+			  1207 for medium
+			  841 for low
+Vert Count              : 1182 for high
+			  969 for medium
+			  718 for low
+Base                    : 
+Editor used             : Tweaked and animated in 3D Studio MAX 4.0 - http://www.discreet.com -
+			  with Character Studio and a bones/ik chain on the hair
+			  Exported with pop n' fresh's MAX plugin - pop_n_fresh@telus.net and 			  		  Rodolpho Cazabon Recompiled in Npherno's MD3Compiler 			  			  -npherno@sunstorm.net, Bots by BotStudio v. 0.98 - doktor@cutey.com -	 	  			  http://www.planetquake.com/botstudio, Photoshop 6.0 was used for the 			  	  	  textures - http://www.adobe.com, SoundForge 5 for the audio - 		  			  http://www.sonicfoundry.com
+Build/Animation time    : 
+
+
+
+* Copyright / Permissions *
+Star Trek: Voyager is a trademark of Paramount Pictures. This product contains software technology licensed from Id Software, Inc. Id technology (c) 1999, Id Software, Inc. Activision is a registered trademark of Activision, Inc. © 1999 Activision, Inc.  Lara Croft, her name and likeness are copyrighted by Eidos Interactive., someone other than me.
+  
+This model can be freely distributed UNALTERED on the net as long as this text file is included, and the pk3 file is unmodified. Which means, you can't pull the readme file out of the zip, or add your own stuff to it and pass it along as your own! If you wish to include it in a compilation, Mod or commercial product, please email me first.
+

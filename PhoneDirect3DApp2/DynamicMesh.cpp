@@ -14,13 +14,24 @@ DynamicMesh::~DynamicMesh(void)
 {
 }
 
-void DynamicMesh::initialize(  Microsoft::WRL::ComPtr<ID3D11Device1> d3dDevice, const Md3* pMd3 )
+void DynamicMesh::initialize(  Microsoft::WRL::ComPtr<ID3D11Device1> d3dDevice, const Md3* pMd3, const Matrix43* pMatrix /*= nullptr*/ )
 {
 	BaseClass::initialize( d3dDevice );
 
+	if( pMatrix != nullptr )
+	{
+		m_matrix = *pMatrix;
+	}
+	else
+	{
+		m_matrix.rot.createUnit();
+		m_matrix.pos.clear();
+	}
+
 	// :HACK:
 
-	const Md3::Surface* pSurface = pMd3->getSurface( 0 );
+//	const Md3::Surface* pSurface = pMd3->getSurface( pMd3->getNumberOfSurfaces() - 1  );
+	const Md3::Surface* pSurface = pMd3->getSurface( 0  );
 	if( pSurface == nullptr )
 	{
 		return;
@@ -28,13 +39,17 @@ void DynamicMesh::initialize(  Microsoft::WRL::ComPtr<ID3D11Device1> d3dDevice, 
 
 	VertexPositionColorTexCoord*	pVertices = new VertexPositionColorTexCoord[ pSurface->numberOfVertices ];
 
-	const float scale = 0.1f;
+	Vector3 vec;
 	for( int v=0; v<pSurface->numberOfVertices; ++v )
 	{
 		VertexPositionColorTexCoord& vert = pVertices[ v ];
-		vert.pos.x = pSurface->pVertices[ v ].coord[ 0 ]*scale; 
-		vert.pos.y = pSurface->pVertices[ v ].coord[ 1 ]*scale; 
-		vert.pos.z = pSurface->pVertices[ v ].coord[ 2 ]*scale;
+		vec.x = pSurface->pVertices[ v ].coord[ 0 ];
+		vec.y = pSurface->pVertices[ v ].coord[ 1 ];
+		vec.z = pSurface->pVertices[ v ].coord[ 2 ];
+		m_matrix.multiply( vec, vec );
+		vert.pos.x = vec.x; 
+		vert.pos.y = vec.y; 
+		vert.pos.z = vec.z;
 		vert.color.x = 1.0f;
 		vert.color.y = 1.0f;
 		vert.color.z = 1.0f;

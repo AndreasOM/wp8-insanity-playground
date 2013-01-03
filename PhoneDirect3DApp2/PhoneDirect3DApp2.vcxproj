@@ -139,6 +139,8 @@
     <ClInclude Include="D3DTexture.h" />
     <ClInclude Include="DynamicMesh.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="Matrix33.h" />
+    <ClInclude Include="Matrix43.h" />
     <ClInclude Include="Md3.h" />
     <ClInclude Include="Md3Model.h" />
     <ClInclude Include="Mesh.h" />
@@ -150,6 +152,8 @@
     <ClInclude Include="BasicTimer.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CheckerMesh.cpp" />
@@ -157,6 +161,8 @@
     <ClCompile Include="D3DTexture.cpp" />
     <ClCompile Include="DynamicMesh.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="Matrix33.cpp" />
+    <ClCompile Include="Matrix43.cpp" />
     <ClCompile Include="Md3.cpp" />
     <ClCompile Include="Md3Model.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -170,6 +176,8 @@
       <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsWinRT>
     </ClCompile>
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="SimplePixelShader.hlsl">

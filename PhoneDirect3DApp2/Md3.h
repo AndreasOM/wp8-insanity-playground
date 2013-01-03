@@ -58,6 +58,8 @@ class Md3
 
 		int			getNumberOfSurfaces( ) const{ return m_numberOfSurfaces; }
 		const Surface*	getSurface( int index ) const;
+
+		const Tag*		findTag( const char* pTag ) const;
 	private:
 		char		m_pName[ 64 ];
 		int			m_numberOfFrames;

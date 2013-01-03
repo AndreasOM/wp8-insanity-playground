@@ -3,6 +3,8 @@
 
 #include "File.h"
 
+#include <string.h>
+
 Md3::Md3(void)
 {
 }
@@ -196,4 +198,17 @@ const Md3::Surface* Md3::getSurface( int index ) const
 
 	return &m_pSurfaces[ index ];
 };
+
+const Md3::Tag* Md3::findTag( const char* pTag ) const
+{
+	for( int t=0; t<m_numberOfTags; ++t )
+	{
+		if( strcmp( ( const char* )( m_pTags[ t ].pName ), pTag ) == 0 )
+		{
+			return &m_pTags[ t ];
+		}
+	}
+
+	return nullptr;
+}
 

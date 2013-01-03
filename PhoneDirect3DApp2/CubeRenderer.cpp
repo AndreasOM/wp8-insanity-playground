@@ -111,7 +111,7 @@ void CubeRenderer::CreateDeviceResources()
 		m_pModelLara->initialize( m_d3dDevice );
 		int lower = m_pModelLara->addMd3( "Assets\\Lara", "lower.md3", "default.tga" );
 		int upper = m_pModelLara->addMd3( "Assets\\Lara", "upper.md3", "default.tga", lower, "tag_torso" );
-		m_pModelLara->addMd3( "Assets\\Lara", "head.md3", "default_h.tga", upper, "tag_head" );
+//		m_pModelLara->addMd3( "Assets\\Lara", "head.md3", "default_h.tga", upper, "tag_head" );	// head is included in upper (due to animation I guess)
 	});
 
 

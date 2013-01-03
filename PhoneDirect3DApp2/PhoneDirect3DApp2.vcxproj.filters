@@ -54,6 +54,10 @@
     <ClCompile Include="File.cpp" />
     <ClCompile Include="DynamicMesh.cpp" />
     <ClCompile Include="Md3Model.cpp" />
+    <ClCompile Include="Vector4.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Matrix33.cpp" />
+    <ClCompile Include="Matrix43.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -72,6 +76,10 @@
     <ClInclude Include="File.h" />
     <ClInclude Include="DynamicMesh.h" />
     <ClInclude Include="Md3Model.h" />
+    <ClInclude Include="Vector4.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Matrix33.h" />
+    <ClInclude Include="Matrix43.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="WMAppManifest.xml" />

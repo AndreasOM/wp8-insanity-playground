@@ -53,6 +53,7 @@
     <ClCompile Include="Md3.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="DynamicMesh.cpp" />
+    <ClCompile Include="Md3Model.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -70,6 +71,7 @@
     <ClInclude Include="Md3.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="DynamicMesh.h" />
+    <ClInclude Include="Md3Model.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="WMAppManifest.xml" />
@@ -82,6 +84,12 @@
       <Filter>Assets</Filter>
     </None>
     <None Include="Assets\Lara\default.tga">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Lara\default_h.tga">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Lara\head.md3">
       <Filter>Assets</Filter>
     </None>
   </ItemGroup>

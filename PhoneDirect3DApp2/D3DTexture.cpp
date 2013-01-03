@@ -6,6 +6,10 @@
 
 D3DTexture::D3DTexture(void)
 {
+	for( int t=0; t<sizeof(m_pHardwareTextures)/sizeof(m_pHardwareTextures[ 0 ]); ++t )
+	{
+		m_pHardwareTextures[ t ] = nullptr;
+	}
 }
 
 

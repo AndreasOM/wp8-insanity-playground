@@ -140,6 +140,7 @@
     <ClInclude Include="DynamicMesh.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="Md3.h" />
+    <ClInclude Include="Md3Model.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="PhoneDirect3DApp2.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="DynamicMesh.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Md3.cpp" />
+    <ClCompile Include="Md3Model.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="PhoneDirect3DApp2.cpp" />
@@ -179,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Lara\default.tga">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Assets\Lara\default_h.tga">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Assets\Lara\head.md3">
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="Assets\Lara\lower.md3">

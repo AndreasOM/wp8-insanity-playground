@@ -7,6 +7,7 @@
 
 class DynamicMesh;
 class Md3;
+class Md3Model;
 
 struct ModelViewProjectionConstantBuffer
 {
@@ -41,7 +42,6 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11Buffer> m_constantBuffer;
 
 	D3DTexture*								m_pTexture;
-	D3DTexture*								m_pLaraTexture;
 
 	uint32 m_indexCount;
 	ModelViewProjectionConstantBuffer m_constantBufferData;
@@ -54,6 +54,5 @@ private:
 	Mesh*			m_pMesh;
 	Mesh*			m_pCheckerMesh;
 
-	Md3*			m_pMd3Lara;
-	DynamicMesh*	m_pLaraMesh;
+	Md3Model*		m_pModelLara;
 };

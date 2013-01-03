@@ -12,6 +12,7 @@
 #include "D3DTexture.h"
 #include "DynamicMesh.h"
 #include "Md3.h"
+#include "Md3Model.h"
 
 using namespace DirectX;
 using namespace Microsoft::WRL;
@@ -106,20 +107,11 @@ void CubeRenderer::CreateDeviceResources()
 	});
 
 	auto loadLaraTask = loadTextureTask.then([this]() {
-		m_pMd3Lara = new Md3();
-
-		m_pMd3Lara->load( "Assets\\Lara", "upper.md3" );
-
-		m_pLaraMesh = new DynamicMesh();
-		m_pLaraMesh->initialize( m_d3dDevice, m_pMd3Lara );
-
-		m_pLaraTexture = new D3DTexture( );
-		m_pLaraTexture->initialize( 128, 128 );
-
-		m_pLaraTexture->load( "Assets\\Lara\\default.tga" );
-
-		m_pLaraTexture->storeToHardware( m_d3dDevice );
-
+		m_pModelLara = new Md3Model;
+		m_pModelLara->initialize( m_d3dDevice );
+		int lower = m_pModelLara->addMd3( "Assets\\Lara", "lower.md3", "default.tga" );
+		int upper = m_pModelLara->addMd3( "Assets\\Lara", "upper.md3", "default.tga", lower, "tag_torso" );
+		m_pModelLara->addMd3( "Assets\\Lara", "head.md3", "default_h.tga", upper, "tag_head" );
 	});
 
 
@@ -186,7 +178,10 @@ void CubeRenderer::Update(float timeTotal, float timeDelta)
 
 	m_rotZ += fabsf( 0.001f*m_rotX );
 
-
+	if( m_pModelLara != nullptr )
+	{
+		m_pModelLara->update( timeDelta );
+	}
 }
 
 void CubeRenderer::Render()
@@ -311,6 +306,8 @@ void CubeRenderer::Render()
 		0
 		);
 
-	m_pLaraTexture->activate( m_d3dContext, 0 );
-	m_pLaraMesh->render( m_d3dContext );
+	if( m_pModelLara != nullptr )
+	{
+		m_pModelLara->render( m_d3dContext );
+	}
 }
